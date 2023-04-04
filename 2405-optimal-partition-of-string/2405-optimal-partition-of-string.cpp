@@ -1,14 +1,15 @@
 class Solution {
 public:
     int partitionString(string s) {
-        vector<int> frq(26); int ans = 1; 
+        vector<int> last_pos(26,-1); 
+        
+        int curr_start = 0, ans = 1; 
         for(int i = 0; i<s.length(); i++){
-            frq[s[i]-'a']++; 
-            if(frq[s[i]-'a'] > 1){
-                for(int j = 0; j < 26; ++j) frq[j] = 0;
-                frq[s[i]-'a'] = 1; 
+            if(last_pos[s[i]-'a'] >= curr_start){
                 ans++; 
+                curr_start = i; 
             }
+            last_pos[s[i]-'a'] = i; 
         }
         return ans; 
     }
