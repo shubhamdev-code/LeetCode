@@ -12,11 +12,11 @@ public:
         findFish(grid,i,j+1,curr_ans,visited); 
     }
     int findMaxFish(vector<vector<int>>& grid) {
-        int ans = 0 ; 
+        int ans = 0 ; vector<vector<bool>> visited(grid.size(),vector<bool>(grid[0].size(),false)); 
         for(int i = 0; i<grid.size(); i++){
             for(int j =0; j<grid[0].size(); j++){
                 if(grid[i][j]){
-                    int curr_ans =0; vector<vector<bool>> visited(grid.size(),vector<bool>(grid[0].size(),false)); 
+                    int curr_ans =0; 
                     findFish(grid,i,j,curr_ans,visited); 
                     ans= max(ans,curr_ans); 
                 }
