@@ -6,9 +6,9 @@ public:
             frq[nums[i]]++; 
         }
         
-        map<int,set<int>,greater<int>> sorted_by_val; 
+        map<int,vector<int>,greater<int>> sorted_by_val; 
         for(auto i : frq){
-            sorted_by_val[i.second].insert(i.first);    
+            sorted_by_val[i.second].push_back(i.first);    
         }
         
         int j =0 ; 
